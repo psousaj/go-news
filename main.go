@@ -8,13 +8,11 @@ import (
 	"github.com/google/uuid"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-
-	_ "your-project-path/docs" // This is where Swag will generate docs.go
 )
 
 // @title News API
 // @version 1.0
-// @description This is a sample news API server.
+// @description API simples de notícias
 // @host localhost:8080
 // @BasePath /
 type News struct {
