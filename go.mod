@@ -10,6 +10,8 @@ require (
 	github.com/swaggo/swag v1.16.3
 )
 
+require github.com/golang-jwt/jwt/v4 v4.5.0
+
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/bytedance/sonic v1.12.3 // indirect
