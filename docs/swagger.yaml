@@ -1,0 +1,123 @@
+basePath: /
+definitions:
+  main.H:
+    additionalProperties: true
+    type: object
+  main.News:
+    properties:
+      author:
+        type: string
+      body:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API simples de notícias
+  title: News API
+  version: "1.0"
+paths:
+  /news:
+    post:
+      consumes:
+      - application/json
+      description: create new news
+      parameters:
+      - description: News object
+        in: body
+        name: news
+        required: true
+        schema:
+          $ref: '#/definitions/main.News'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/main.News'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.H'
+      summary: Create a news
+  /news/{id}:
+    delete:
+      description: delete news by ID
+      parameters:
+      - description: News ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.H'
+      summary: Delete a news
+    get:
+      description: get news by ID
+      parameters:
+      - description: News ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.News'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.H'
+      summary: Get a news
+    put:
+      consumes:
+      - application/json
+      description: update news by ID
+      parameters:
+      - description: News ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: News object
+        in: body
+        name: news
+        required: true
+        schema:
+          $ref: '#/definitions/main.News'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.News'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.H'
+      summary: Update a news
+swagger: "2.0"
